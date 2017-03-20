@@ -20,15 +20,17 @@ Features include:
 
 * Install gunicorn
 * Install pybabel
-* Install pip stuff `pip -r ... requirements.txt`
+* Install pip stuff `pip install -r requirements.txt`
 
-2. Start redis
+2. Start redis (`redis-server &`)
 
-3. Setup config
+3. Setup config:
+- copy/rename `config.json.default` to `config.json` and edit the required values in the file
+- make sure to set the Flask `secret_key` property (see [here](http://flask.pocoo.org/docs/0.12/quickstart/#sessions) for more details on how to generate a key) and to fill the `OCTAV` section
 
 4. Run gunicorn
 
-gunicorn --reload app:app
+`gunicorn --reload app:app`
 
 ## How to run on Vagrant
 
@@ -41,7 +43,7 @@ gunicorn --reload app:app
 
 2.  configure, edit config.json
 
-    Currently OCTAB section is empty.
+    Currently OCTAV section is empty.
     Please set proper values to run correctly.
 
 3.  start server in simple server.
